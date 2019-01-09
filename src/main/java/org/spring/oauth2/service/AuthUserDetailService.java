@@ -34,7 +34,7 @@ public class AuthUserDetailService implements UserDetailsService {
             @Override
             public Collection<? extends GrantedAuthority> getAuthorities() {
                 ArrayList authorities =  new ArrayList<>();
-                authorities.add(new SimpleGrantedAuthority("ROLE_ANYONE"));
+                authorities.add(new SimpleGrantedAuthority("user"));
                 String[] userRoles = u.getUserRoles();
                 if(userRoles != null && userRoles.length > 0){
                      for (String roleName : userRoles) {

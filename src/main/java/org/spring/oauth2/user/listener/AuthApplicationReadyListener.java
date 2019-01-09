@@ -35,7 +35,7 @@ public class AuthApplicationReadyListener implements ApplicationListener<Applica
             u.setDepartId("001");
             u.setPassword("user");
             u.setRealName("Normal-User");
-            u.setUserRoles(new String[]{"ROLE_USER"});
+            u.setUserRoles(new String[]{"user"});
             userRepo.save(u);
         }
         //init user named admin to DB.
@@ -47,7 +47,7 @@ public class AuthApplicationReadyListener implements ApplicationListener<Applica
             u.setDepartId("001");
             u.setPassword("admin");
             u.setRealName("Admin-User");
-            u.setUserRoles(new String[]{"ROLE_ADMIN"});
+            u.setUserRoles(new String[]{"admin"});
             userRepo.save(u);
         }
 
