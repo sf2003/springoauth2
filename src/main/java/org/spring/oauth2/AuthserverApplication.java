@@ -88,7 +88,16 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			http.formLogin().loginPage("/login").permitAll().and().authorizeRequests()
-					.anyRequest().authenticated();
+					.anyRequest().authenticated().and().logout().logoutUrl("/logout").invalidateHttpSession(true).clearAuthentication(true).deleteCookies().permitAll()
+					.logoutSuccessHandler(
+							(request, response, authentication) -> {
+								String callback = request.getParameter("callback");
+								if (callback == null){
+									callback = "/login?logout";
+								}
+								response.sendRedirect(callback);
+							}
+					).and().csrf().disable();
 		}
 		
 		@Override

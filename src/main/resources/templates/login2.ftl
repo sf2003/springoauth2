@@ -107,7 +107,6 @@
                             <div class="input-group">
                                 <span class="input-group-addon"></span>
                                 <input type="text" id="username" name="username" class="form-control" placeholder="用户名">
-                                <input type="hidden" id="csrf_token" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </div>
                         </div>
                     </div>
